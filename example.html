@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+   <head> 
+      <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+      <script>
+        $(document).ready(function(){
+
+       //   alert('Is it the weekend?');
+
+      //    if ( alert=true) {
+       //     $("body").append(JSON); //add the JSON Code here?
+         // } else {
+           // $("body").addClass(Sad);
+          //};
+
+         $.getJSON("http://cooper-union-search-proxy.herokuapp.com/twitter/search/itsthefreakinweekend/", function(response){ 
+        
+        var status0 = response.statuses[0].text
+
+        var status1 = response.statuses[1].text
+
+        var status2 = response.statuses[2].text
+
+        var status3 = response.statuses[3].text
+
+        var status4 = response.statuses[4].text
+
+        var status5 = response.statuses[5].text
+
+
+       })
+
+        $.getJSON('http://cooper-union-instagram-proxy.herokuapp.com/search/tag/itsthefreakinweekend', function(response){
+        console.log(response);
+        for(var i=0; i<response.length; i++) {
+         // var img = '<img src=' + response[i].images.standard_resolution.url + ' />';
+         // $("body").append(img);
+          
+        //   console.log(response);
+        
+        var img0 = '<img src=' + response[0].images.standard_resolution.url + ' />'
+
+        var img1 = '<img src=' + response[1].images.standard_resolution.url + ' />'
+
+        var img2 = '<img src=' + response[2].images.standard_resolution.url + ' />'
+
+        var img3 = '<img src=' + response[3].images.standard_resolution.url + ' />'
+
+        var img4 = '<img src=' + response[4].images.standard_resolution.url + ' />'
+
+
+//work this out
+        $('img[i]').click(function(){
+
+          counter = counter + 1;
+        //  console.log("The lightbulb was turned on");
+         // console.log(counter);
+
+          //swap the switch to show a new img
+        //  $(img[0]).addClass("hidden");
+        //  $(img[1]).removeClass("hidden");
+
+//
+
+        $("body").html('<h1>#itsthefreakinweekend</h1>');  
+        
+
+        $("body").append('<div>' + img0 + '</div>');
+       // $(img[0]).addClass("hidden");
+        $(img[0]).removeClass("hidden");
+       
+
+        $("body").append('<div>' + img1 + '</div>');
+        $(img[0]).addClass("hidden");
+        $(img[1]).removeClass("hidden");
+
+        
+        $("body").append('<div>' + img2 + '</div>');
+        $(img[1]).addClass("hidden");
+         $(img[2]).removeClass("hidden");
+
+
+        $("body").append('<div>' + img3 + '</div>');
+        $(img[2]).addClass("hidden");
+        $(img[3]).removeClass("hidden");
+
+        $("body").append('<div>' + img4 + '</div>');
+        $(img[3]).addClass("hidden");
+        $(img[4]).removeClass("hidden");
+        
+        }); //should this be here?
+
+
+       };
+    });
+});
+      </script>
+     </head>
+    <style type="text/css">
+    .Sad{
+      background-color: white;
+      }
+    .hidden {
+        display:none;
+      }
+      </style>
+    <body>
+      <div id="1" ></div>
+      <div id="2" ></div>
+    </body>
+
+
+</html>
