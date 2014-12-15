@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple Map</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <style>
+      html, body, #map-canvas {
+        height: 100%;
+        margin: 0px;
+        padding: 0px
+      }
+      .images{
+        width: 10px;
+        height: 20px;
+      }
+
+    </style>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+    <script>
+
+    //maps
+
+      var map;
+      var initialize = function() {
+        var mapOptions = {
+          zoom: 16,
+          center: new google.maps.LatLng(40.652842, -73.987517)
+        };
+        var map = new google.maps.Map(document.getElementById('map-canvas'),
+            mapOptions);
+
+        var myLatlng = new google.maps.LatLng(40.652842, -73.987517);
+        
+        //Peter Cooper
+          var position = new google.maps.LatLng(40.652842, -73.987517);
+
+          var markerOptions = {
+              position: position,
+              map: map,
+              title:"Here Lies Peter Cooper",
+      //        icon: 'http://www.tradecards.com/articles/personages/images/per26.jpg' //url to images
+          };
+
+          // To add the marker to the map, use the 'map' property
+          var marker = new google.maps.Marker(markerOptions);
+        
+        //Green Wood Entrance
+          var entrancePosition = new google.maps.LatLng(40.658115, -73.994606); //needs to be position for var??
+          
+          var entranceMarkerOptions = {
+              position: entrancePosition,
+              map: map,
+              title:"Welcome to Greenwood",
+             // icon: 'http://www.photographium.com/sites/default/files/entrance_to_greenwood_cemetery_brooklyn_new_york_city_new_york._1906.jpg' //url to images
+          };
+
+          var entranceMarker = new google.maps.Marker(entranceMarkerOptions);
+
+       // } do i need this thing?
+
+          // To add the marker to the map, use the 'map' property
+      //    var starbucksMarker = new google.maps.Marker(starbucksMarkerOptions);
+      var marker = new google.maps.Marker(hgeorgeMarkerOptions);
+        //HGeorge
+         var HGeorge = new google.maps.LatLng(40.652755, -73.983924);
+          var hgeorgeMarkerOptions = {
+              position: HGeorge,
+              map: map,
+              title:"Henry George",
+            // icon: 'http://www.westernjournalism.com/wp-content/uploads/2013/11/Henry-Ward-Beecher-SC.jpg' //url to images
+          };
+         
+         var hgeorgeMarker = new google.maps.Marker(hgeorgeMarkerOptions);
+    
+      //}
+      var marker = new google.maps.Marker(aduryeeMarkerOptions);
+        //starbucks
+         var ADuryee = new google.maps.LatLng(40.652701, -73.988712);
+          var aduryeeMarkerOptions = {
+              position: ADuryee,
+              map: map,
+              title:"Abram Duryee",
+             //icon: 'http://www.westernjournalism.com/wp-content/uploads/2013/11/Henry-Ward-Beecher-SC.jpg' //url to images
+          };
+         
+       var aduryeeMarker = new google.maps.Marker(aduryeeMarkerOptions);
+   // //   }
+      var marker = new google.maps.Marker(hchadwickMarkerOptions);
+        //starbucks
+         var HChadwick = new google.maps.LatLng(40.657720, -73.986290);
+          var hchadwickMarkerOptions = {
+              position: HChadwick,
+              map: map,
+              title:"Henry Chadwick",
+             //icon: 'http://www.westernjournalism.com/wp-content/uploads/2013/11/Henry-Ward-Beecher-SC.jpg' //url to images
+          };
+        
+       var hchadwickMarker = new google.maps.Marker(hchadwickMarkerOptions); 
+     // }
+      var marker = new google.maps.Marker(cebbetsMarkerOptions);
+        //starbucks
+         var CEbbets = new google.maps.LatLng(40.652755,  -73.986291);
+          var cebbetsMarkerOptions = {
+              position: CEbbets,
+              map: map,
+              title:"Charles Ebbets",
+             //icon: 'http://www.westernjournalism.com/wp-content/uploads/2013/11/Henry-Ward-Beecher-SC.jpg' //url to images
+          };
+
+        var cebbetsMarker = new google.maps.Marker(cebbetsMarkerOptions)
+         // $("body").addClass("images"); needs editing to select the specific variables
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+
+
+
+//       //instagram
+//     $(document).ready(function(){
+//     $.getJSON('http://cooper-union-instagram-proxy.herokuapp.com/search/tag/greenwoodcemetery', function(response){
+//        // $(function () {
+//     console.log(response);
+//     var latitude = [];
+//     for(var i=0; i<response.length; i++) {
+//             latitude.push(response[i].location.latitude);
+//             var lat = latitude;
+    
+//     };
+//         console.log(lat);
+
+    $(document).ready(function(){
+      $.getJSON('http://cooper-union-instagram-proxy.herokuapp.com/search/tag/greenwoodcemetery', function(response){
+             // $(function () {
+          console.log(response);
+          var location = [];
+          for(var i=0; i<response.length; i++) {
+                  location.push(response[i].location);
+                  var gravesite = location;
+          };
+              console.log(gravesite);
+
+
+
+          var longitude = [];
+          for(var i=0; i<response.length; i++) {
+              longitude.push(gravesite[0].longitude);
+              var lon = longitude;
+          };
+             // console.log(lon);
+
+
+              var latitude = [];
+          for(var i=0; i<response.length; i++) {
+              latitude.push(gravesite[0].latitude);
+              var lat = latitude;
+          };
+            console.log(lat, lon);
+
+
+ //}
+  });
+       });
+
+
+    </script>
+  </head>
+  <body>
+    <div id="map-canvas"></div>
+  </body>
+</html>
