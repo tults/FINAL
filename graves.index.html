@@ -6,13 +6,13 @@
     <meta charset="utf-8">
     <style>
       html, body, #map-canvas {
-        height: 75%;
+        height: 100%;
         margin: 0px;
         padding: 0px
       }
       .images{
-        width: 10px;
-        height: 20px;
+        width: 90px;
+        height: 90px;
       }
 
     </style>
@@ -24,7 +24,7 @@
      // $(document).ready(function(){
     
     //test
-    $(function () {
+    // $(function () {
       var map;
       $.getJSON('http://cooper-union-instagram-proxy.herokuapp.com/search/tag/greenwoodcemetery', function(response){
       
@@ -37,7 +37,7 @@
               console.log(gravesite);
       var initialize = function() {
         var mapOptions = {
-          zoom: 16,
+          zoom: 17,
           center: new google.maps.LatLng(40.652842, -73.987517)
         };
         var map = new google.maps.Map(document.getElementById('map-canvas'),
@@ -52,7 +52,7 @@
               position: position,
               map: map,
               title:"Here Lies Peter Cooper",
-      //        icon: 'http://www.tradecards.com/articles/personages/images/per26.jpg' //url to images
+              icon: 'pcooper.png'
           };
 
           // To add the marker to the map, use the 'map' property
@@ -65,15 +65,14 @@
               position: entrancePosition,
               map: map,
               title:"Welcome to Greenwood",
-             // icon: 'http://www.photographium.com/sites/default/files/entrance_to_greenwood_cemetery_brooklyn_new_york_city_new_york._1906.jpg' //url to images
+             icon: 'greenwoodgates.png'
           };
 
           var entranceMarker = new google.maps.Marker(entranceMarkerOptions);
 
        // } do i need this thing?
 
-          // To add the marker to the map, use the 'map' property
-      //    var starbucksMarker = new google.maps.Marker(starbucksMarkerOptions);
+          
       var marker = new google.maps.Marker(hgeorgeMarkerOptions);
         //HGeorge
          var HGeorge = new google.maps.LatLng(40.652755, -73.983924);
@@ -81,7 +80,7 @@
               position: HGeorge,
               map: map,
               title:"Here Lies Henry George",
-            // icon: 'http://www.westernjournalism.com/wp-content/uploads/2013/11/Henry-Ward-Beecher-SC.jpg' //url to images
+              icon: 'hgeorge.png'
           };
          
          var hgeorgeMarker = new google.maps.Marker(hgeorgeMarkerOptions);
@@ -94,7 +93,7 @@
               position: ADuryee,
               map: map,
               title:"Here Lies Abram Duryee",
-             //icon: 'http://www.westernjournalism.com/wp-content/uploads/2013/11/Henry-Ward-Beecher-SC.jpg' //url to images
+              icon: 'aduryee.png'
           };
          
        var aduryeeMarker = new google.maps.Marker(aduryeeMarkerOptions);
@@ -106,7 +105,7 @@
               position: HChadwick,
               map: map,
               title:"Here Lies Henry Chadwick",
-             //icon: 'http://www.westernjournalism.com/wp-content/uploads/2013/11/Henry-Ward-Beecher-SC.jpg' //url to images
+              icon: 'Chadwick.png'
           };
         
        var hchadwickMarker = new google.maps.Marker(hchadwickMarkerOptions); 
@@ -118,7 +117,7 @@
               position: CEbbets,
               map: map,
               title:"Charles Ebbets",
-             //icon: 'http://www.westernjournalism.com/wp-content/uploads/2013/11/Henry-Ward-Beecher-SC.jpg' //url to images
+              icon: 'ebbets.png'
           };
 
         var cebbetsMarker = new google.maps.Marker(cebbetsMarkerOptions)
@@ -128,7 +127,7 @@
           
            var marker = new google.maps.Marker(instagram1MarkerOptions);
         //starbucks
-         var Instagram1 = new google.maps.LatLng(40.7,  -73.986291);
+         var Instagram1 = new google.maps.LatLng(40.653596, -73.995999);
           var instagram1MarkerOptions = {
               position: Instagram1,
               map: map,
@@ -141,7 +140,7 @@
 
 var marker = new google.maps.Marker(instagram2MarkerOptions);
         //starbucks
-         var Instagram2 = new google.maps.LatLng(40.7,  -73.986291);
+         var Instagram2 = new google.maps.LatLng(40.655834, -73.989422);
           var instagram2MarkerOptions = {
               position: Instagram2,
               map: map,
@@ -154,7 +153,7 @@ var marker = new google.maps.Marker(instagram2MarkerOptions);
 
         var marker = new google.maps.Marker(instagram3MarkerOptions);
         //starbucks
-         var Instagram3 = new google.maps.LatLng(40.7,  -73.986291);
+         var Instagram3 = new google.maps.LatLng(40.653474, -73.993843);
           var instagram3MarkerOptions = {
               position: Instagram3,
               map: map,
@@ -167,7 +166,7 @@ var marker = new google.maps.Marker(instagram2MarkerOptions);
 
         var marker = new google.maps.Marker(instagram4MarkerOptions);
         //starbucks
-         var Instagram4 = new google.maps.LatLng(40.7,  -73.986291);
+         var Instagram4 = new google.maps.LatLng(40.653148, -73.982921);
           var instagram4MarkerOptions = {
               position: Instagram4,
               map: map,
@@ -180,7 +179,7 @@ var marker = new google.maps.Marker(instagram2MarkerOptions);
 
         var marker = new google.maps.Marker(instagram5MarkerOptions);
         //starbucks
-         var Instagram5 = new google.maps.LatLng(40.7,  -73.986291);
+         var Instagram5 = new google.maps.LatLng(40.650201, -73.992920);
           var instagram5MarkerOptions = {
               position: Instagram5,
               map: map,
@@ -195,10 +194,10 @@ var marker = new google.maps.Marker(instagram2MarkerOptions);
      google.maps.event.addDomListener(window, 'load', initialize);
 
      
-  // });
+   });
 
-     });
-  });
+//     });
+  //});
 
 
     </script>
